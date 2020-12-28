@@ -3,17 +3,17 @@ const path = require("path");
 
 //set up express app
 const app = express();
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 3002
 
 //set Express static path
 app.use(express.static("public"));
 
 //set up the express app to handle data parsing
 app.use(express.urlencoded({extended:true}));
-app.use (express.join());
+app.use(express.json());
 
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+//require("./routes/htmlRoutes")(app);
 
 //
 app.listen(PORT, ()=>{

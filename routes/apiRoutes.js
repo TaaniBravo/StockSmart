@@ -1,5 +1,8 @@
 const path = require("path");
 const db = require("../db/index.js");
+const { JSDOM } = require( "jsdom" );
+const { window } = new JSDOM( "" );
+const $ = require( "jquery" )( window );
 
 module.exports = (app) =>{
     //index api routes
@@ -38,12 +41,20 @@ module.exports = (app) =>{
 const getStockData = async (stockName) =>{
     const apiKey = "74aecf90c32b9cdfeb1ec6b894f3a4f1";
     stockName = "AAPL";
-    const queryURL = `https://api.marketstack.com/v1/eod? access_key = ${apiKey} & symbols = ${stockName}`;
+   
+    const queryURL = `https://api.marketstack.com/v1/eod?access_key=${apiKey}&symbols=${stockName}`;
+    try{
+        const response = await $.ajax({
+            url: queryURL,
+            method: "GET"
+        })
+
+        console.log(response)
+        return response;
+
+    }catch(err){
+        console.error(err);
+    }
     
-    const response = await $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
-    console.log(response)
-    return response;
+    
 }

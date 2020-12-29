@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon server.js",
     "start": "node server.js"
   },
   "repository": {
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/TaaniBravo/StockSmart#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
     "jquery": "^3.5.1",
     "jsdom": "^16.4.0",
     "mysql": "^2.18.1",

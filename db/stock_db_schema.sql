@@ -1,0 +1,15 @@
+DROP DATABASE IF EXISTS stock_db;
+CREATE DATABASE stock_db;
+USE stock_db;
+CREATE TABLE user (
+  id INT AUTO_INCREMENT NOT NULL,
+  username VARCHAR(30) NOT NULL,
+  password VARCHAR(30) NOT NULL
+),
+CREATE TABLE saved_stocks (
+  id INT AUTO_INCREMENT NOT NULL,
+  ticker VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id),
+  user_id INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
+)

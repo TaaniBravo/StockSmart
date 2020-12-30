@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
     //sql password
     password: "2b.D_?rtwbjm",
     //name of database
-    database: "employee_DB"
+    database: "stock_db"
 });
 
 connection.connect((err)=>{

@@ -2,29 +2,73 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Smart</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stock Smart</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.1.3/flatly/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <header class="row justify-content-center">
-    <nav class="navbar navbar-dark col-10 rounded-bottom">
-        <a class="navbar-brand title" href="/">ST<i class="fas fa-comment-dollar"></i>CKsmart.
-        </a>
-        <div class="icons">
-            <i class="fas fa-user text-light user-page"></i>
-            <i class="fas fa-search-dollar text-light new-note"></i>
-        </div>
+  <nav class="navbar navbar-dark col-10 rounded-bottom">
+    <a class="navbar-brand title" href="/">ST<i class="fas fa-comment-dollar"></i>CKsmart.
+    </a>
+    <div class="icons">
+      <i class="fas fa-user text-light user-page"></i>
+      <i class="fas fa-search-dollar text-light new-note"></i>
+    </div>
 </header>
 
 <body>
-    {{{ body }}}
+  <form class="row g-2 justify-content-center px-5 pt-1 mx-1">
+    <div class="col-sm-6">
+      <label for="date-from" class="form-label">From:</label>
+      <input type="date" class="form-control" id="date-from">
+    </div>
+    <div class="col-sm-6">
+      <label for="date-to" class="form-label">To:</label>
+      <input type="date" class="form-control" id="date-to">
+    </div>
+    <div class="col-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="Volume">
+        <label class="form-check-label" for="Volume">
+          Volume
+        </label>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="news">
+        <label class="form-check-label" for="news">
+          News Catalyst
+        </label>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          Check me out
+        </label>
+      </div>
+    </div>
+    <div class="col-3">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="gridCheck">
+        <label class="form-check-label" for="gridCheck">
+          Check me out
+        </label>
+      </div>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">View Results</button>
+    </div>
+  </form>
 </body>
 
 </html>

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
-<header class="row justify-content-center">
+<header class="row justify-content-center mb-2">
   <nav class="navbar navbar-dark col-10 rounded-bottom">
     <a class="navbar-brand title" href="/">ST<i class="fas fa-comment-dollar"></i>CKsmart.
     </a>
@@ -24,51 +24,56 @@
 </header>
 
 <body>
-  <form class="row g-2 justify-content-center px-5 pt-1 mx-1">
-    <div class="col-sm-6">
-      <label for="date-from" class="form-label">From:</label>
-      <input type="date" class="form-control" id="date-from">
-    </div>
-    <div class="col-sm-6">
-      <label for="date-to" class="form-label">To:</label>
-      <input type="date" class="form-control" id="date-to">
-    </div>
-    <div class="col-3">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="Volume">
-        <label class="form-check-label" for="Volume">
-          Volume
-        </label>
+  <div class="container border border-4 rounded p-3">
+    <form class="row g-2 justify-content-center px-4 pt-1">
+      <div class="col-12">
+        <input class="form-control" type="text" placeholder="Search Specific Ticker (optional)" aria-label="search-ticker">
       </div>
-    </div>
-    <div class="col-3">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="news">
-        <label class="form-check-label" for="news">
-          News Catalyst
-        </label>
+      <div class="col-sm-6">
+        <label for="date-from" class="form-label">From:</label>
+        <input type="date" class="form-control" id="date-from">
       </div>
-    </div>
-    <div class="col-3">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
+      <div class="col-sm-6">
+        <label for="date-to" class="form-label">To:</label>
+        <input type="date" class="form-control" id="date-to">
       </div>
-    </div>
-    <div class="col-3">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
+      <div class="col-sm-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="Volume">
+          <label class="form-check-label" for="Volume">
+            Volume
+          </label>
+        </div>
       </div>
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">View Results</button>
-    </div>
-  </form>
+      <div class="col-sm-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="news">
+          <label class="form-check-label" for="news">
+            News Catalyst
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Check me out
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            Check me out
+          </label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">View Results</button>
+      </div>
+    </form>
+  </div>
 </body>
 
 </html>

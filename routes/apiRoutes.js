@@ -1,15 +1,16 @@
 const path = require("path");
 const db = require("../db/index.js");
-const { JSDOM } = require( "jsdom" );
-const { window } = new JSDOM( "" );
-const $ = require( "jquery" )( window );
+const axios = require('axios');
+
 
 module.exports = (app) =>{
     //index api routes
-    app.get('/api/index', (req, res) =>{
-        const stockName = req.body
-        const response = getStockData(stockName);
-        res.json(stockName)
+    app.get('/api/index',async (req, res) =>{
+        //const stockName = req.body
+        const response = await getStockData();
+
+        console.log(response)
+        res.json(response)
     });
 
     //
@@ -38,23 +39,21 @@ module.exports = (app) =>{
     })
 }
 
-const getStockData = async (stockName) =>{
-    const apiKey = "74aecf90c32b9cdfeb1ec6b894f3a4f1";
-    stockName = "AAPL";
-   
-    const queryURL = `https://api.marketstack.com/v1/eod?access_key=${apiKey}&symbols=${stockName}`;
-    try{
-        const response = await $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-
-        console.log(response)
-        return response;
-
-    }catch(err){
-        console.error(err);
+const getStockData = async () =>{
+  var options = {
+    method: 'GET',
+    url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-profile',
+    params: {symbol: 'IBM', region: 'US'},
+    headers: {
+      'x-rapidapi-key': '9a75e7e737msh3e63f4ab675bf6ap1c7c04jsne77b973b90a7',
+      'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'
     }
-    
-    
+  };
+      try{
+        const response = await axios.request(options)
+        return(response.data)
+      }catch(err){
+          console.error(err);
+      }
+      
 }

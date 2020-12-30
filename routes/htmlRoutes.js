@@ -1,9 +1,7 @@
 const path = require("path");
 const db = require("../db/index.js");
-const { JSDOM } = require( "jsdom" );
-const { response } = require("express");
-const { window } = new JSDOM( "" );
-const $ = require( "jquery" )( window );
+const axios = require('axios');
+
 
 module.exports = (app) =>{
     const hellos = [{hello:"hello world"}]

@@ -9,6 +9,23 @@ module.exports = (app) =>{
     const hellos = [{hello:"hello world"}]
     //html routes
     app.get('/', (req, res)=>{
-        res.render("index", hellos[0]);
+        res.render("index");
     })
+
+    app.get('/results', (req, res)=>{
+        res.render("results");
+    })
+
+    app.get('/userpage', (req, res)=>{
+        res.render("userpage");
+    })
+
+    app.get('/register', (req, res)=>{
+        res.render("register");
+    })
+
+    app.get('/signin', (req, res)=>{
+        res.render("signin");
+    })
+
 }

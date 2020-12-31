@@ -1,6 +1,7 @@
 DROP DATABASE IF EXISTS stock_db;
 CREATE DATABASE stock_db;
 USE stock_db;
+
 CREATE TABLE user (
   id INT AUTO_INCREMENT NOT NULL,
   username VARCHAR(30) NOT NULL,

@@ -6,6 +6,9 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3002
 
+//set public folder
+app.use(express.static("public"));
+
 //set up the express app to handle data parsing
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());

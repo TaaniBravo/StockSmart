@@ -8,9 +8,9 @@ const connection = mysql.createConnection({
     //sql user name
     user: "root",
     //sql password
-    password: "root",
+    password: "2b.D_?rtwbjm",
     //name of database
-    database: "employee_DB"
+    database: "stock_db"
 });
 
 connection.connect((err)=>{

@@ -15,3 +15,8 @@ CREATE TABLE saved_stocks (
   user_id INT NOT NULL,
   FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE
 );
+CREATE TABLE searched_stocks (
+  id INT AUTO_INCREMENT NOT NULL,
+  ticker VARCHAR(30) NOT NULL,
+  PRIMARY KEY (id)
+);

@@ -1,7 +1,12 @@
-const priceTextEl = document.getElementById('price-text')
-const priceRangeEl = document.getElementById('price-range')
+const $priceText = $('#price-text')
+const $priceRange = $('#price-range')
+
+// window.onload = () => {
+//     $priceText.val() = $priceRange.val()
+// }
 
 const updateRangeValue = val => {
     document.getElementById('price-text').value = val
 }
+
 

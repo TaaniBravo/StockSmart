@@ -1,9 +1,25 @@
+body {
+    width: 100vw;
+    height: auto;    
+}
+
+header .row {
+    width: 100vw;
+}
+
 .navbar {
     background-color: #85bb65;
 }
 
 .navbar-brand {
     font-size: 2rem;
+}
+
+.jumbotron {
+    max-width: 80vw;
+    margin: 0 auto;
+    background-image: url("../images/business-5475664_1920.jpg;");
+    background: cover center;
 }
 
 @media screen and (max-width: 768px) {

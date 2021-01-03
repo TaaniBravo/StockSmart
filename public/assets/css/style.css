@@ -1,6 +1,6 @@
 body {
-    width: 100vw;
-    height: auto;    
+    margin: 0;
+    padding: 0;   
 }
 
 header .row {
@@ -22,13 +22,10 @@ nav {
 .jumbotron {
     max-width: 90vw;
     margin: 0 auto;
-    background-image: url("./images/business-5475664_1920.jpg;");
+    background-image: url("../images/business-5475664_1920.png");
     background: cover center;
-    background-color: #85bb65;
-}
-
-form {
-    width: 90vw;
+    margin-bottom: 2rem;
+    border-radius: 0 0 6px 6px;
 }
 
 footer {
@@ -36,7 +33,19 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+
     .navbar-brand {
         font-size: 1.5rem;
+    }
+
+    .jumbotron {
+        background: fill center right;
+    }
+    .jumbotron .display-5 {
+        font-size: 2rem !important;
+    }
+
+    .jumbotron p {
+        font-size: .8rem;
     }
 }

@@ -5,33 +5,33 @@ const axios = require('axios');
 
 module.exports = (app) =>{
     //index api routes
-    app.get('/api/index',async (req, res) =>{
+    app.post('/api/index', (req, res) =>{
         //const stockName = req.body
-        const stockName = "AAPL"
+        stockName = req.body
         db.addAll([
           "saved_stocks",
           {
             ticker: stockName
           }
         ])
-        const date1 = 1608215400
-        const date2 = 1608042600;
-        const {prices} = await getStockData(stockName);
-
-        filterResponse = prices.filter(({date}) => date1 >= parseInt(date) && date2 <= parseInt(date))
-        //console.log(filterResponse)
-        res.json(filterResponse)
+        
     });
 
     //results api routes
 
-    app.get('/api/results', (req,res) =>{
+    app.get('/api/results', async (req,res) =>{
+      const stockName = "AAPL"
+      const date1 = 1608215400
+      const date2 = 1608042600;
+      const {prices} = await getStockData(stockName);
 
+      filterResponse = prices.filter(({date}) => date1 >= parseInt(date) && date2 <= parseInt(date))
+      const header = Object.keys(filterResponse[0])
+
+      res.render("results", {header:header})
+      //console.log(filterResponse)
+      res.json(filterResponse)
     });
-
-    app.post('/api/results', (req, res) =>{
-        
-    })
 
     //user page api routes
     
@@ -45,7 +45,6 @@ module.exports = (app) =>{
 }
 
 const getStockData = async (stockName) =>{
-  stockName = "AAPL"
   const options = {
     method: 'GET',
     url: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v2/get-historical-data',

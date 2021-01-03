@@ -7,6 +7,10 @@ header .row {
     width: 100vw;
 }
 
+nav {
+    width: 90vw;
+}
+
 .navbar {
     background-color: #85bb65;
 }
@@ -16,10 +20,19 @@ header .row {
 }
 
 .jumbotron {
-    max-width: 80vw;
+    max-width: 90vw;
     margin: 0 auto;
-    background-image: url("../images/business-5475664_1920.jpg;");
+    background-image: url("./images/business-5475664_1920.jpg;");
     background: cover center;
+    background-color: #85bb65;
+}
+
+form {
+    width: 90vw;
+}
+
+footer {
+    font-size: .8rem;
 }
 
 @media screen and (max-width: 768px) {

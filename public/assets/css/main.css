@@ -1,0 +1,76 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header .row {
+    width: 100vw;
+}
+
+nav {
+    width: 90vw;
+}
+
+footer {
+    font-size: .8rem;
+}
+
+.navbar {
+    background-color: #85bb65;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.smart {
+    font-family: 'Lobster', cursive;
+}
+
+.jumbotron {
+    max-width: 90vw;
+    margin: 0 auto;
+    background-image: url("../images/business-5475664_1920.png");
+    background: cover center;
+    margin-bottom: 2rem;
+    border-radius: 0 0 6px 6px;
+}
+
+.star-checkbox {
+    color: goldenrod;
+}
+
+.star-checkbox input[type="checkbox"],
+.star-checkbox .checked {
+    display: none;
+}
+ 
+.star-checkbox input[type="checkbox"]:checked ~ .checked
+{
+    display: inline-block;
+}
+ 
+.star-checkbox input[type="checkbox"]:checked ~ .unchecked
+{
+    display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+
+    .jumbotron {
+        background: fill center right;
+    }
+    .jumbotron .display-5 {
+        font-size: 2rem !important;
+    }
+
+    .jumbotron p {
+        font-size: .8rem;
+    }
+}

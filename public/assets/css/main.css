@@ -11,6 +11,10 @@ nav {
     width: 90vw;
 }
 
+footer {
+    font-size: .8rem;
+}
+
 .navbar {
     background-color: #85bb65;
 }
@@ -28,9 +32,25 @@ nav {
     border-radius: 0 0 6px 6px;
 }
 
-footer {
-    font-size: .8rem;
+.star-checkbox {
+    color: goldenrod;
 }
+
+.star-checkbox input[type="checkbox"],
+.star-checkbox .checked {
+    display: none;
+}
+ 
+.star-checkbox input[type="checkbox"]:checked ~ .checked
+{
+    display: inline-block;
+}
+ 
+.star-checkbox input[type="checkbox"]:checked ~ .unchecked
+{
+    display: none;
+}
+
 
 @media screen and (max-width: 768px) {
 

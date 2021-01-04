@@ -2,9 +2,11 @@
 <table class="table container">
   <thead>
     <tr>
-        {{#each header}}
-        <li> <th scope="col">{{this}}</th></li>
-        {{/each}}
+      {{#each header}}
+      <li>
+        <th scope="col">{{this}}</th>
+      </li>
+      {{/each}}
     </tr>
   </thead>
   <tbody>
@@ -13,6 +15,13 @@
       <td>Mark</td>
       <td>Otto</td>
       <td>@mdo</td>
+      <td>
+        <label class="star-checkbox">
+          <input type="checkbox">
+          <i class="far fa-star unchecked"></i>
+          <i class="fas fa-star checked"></i>
+        </label>
+      </td>
     </tr>
   </tbody>
 </table>

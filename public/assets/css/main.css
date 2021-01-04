@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    padding: 0;   
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 header .row {
@@ -21,6 +22,10 @@ footer {
 
 .navbar-brand {
     font-size: 2rem;
+}
+
+.smart {
+    font-family: 'Lobster', cursive;
 }
 
 .jumbotron {

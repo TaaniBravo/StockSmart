@@ -11,20 +11,20 @@ const updateRangeValue = val => {
     document.getElementById('price-text').value = val
 }
 
-const handleResults = () =>{
-    const stockName = $('#ticker').val()
-        //ticker: $('#ticker').val(),
-        // from: $('#date-from').val(),
-        // to: $('#date_to').val(),
-        // price: $('price-text').val(),
-        // volume: $('#volume'),
-        // newCatalyst: $('#news').val(),
-        // lateEarnings: $('#earnings').val(),
-        // secFilings: $('#filings').val(),
+const handleResults = (e) =>{
+    //e.preventDefault()
+    const stockName = {
+        ticker: $('#ticker').val(),
+        from: convertDate($('#date-from').val()),
+        to: convertDate($('#date-to').val()),
+        price: $('#price-text').val(),
+        volume: $('#volume').is(":checked"),
+        newCatalyst: $('#news').is(":checked"),
+        lateEarnings: $('#earnings').is(":checked"),
+        secFilings: $('#filings').is(":checked")}
     
-
+    console.log(stockName)
     postStock(stockName)
-    
 }
 const postStock = (stockName)=>{
     return $.ajax({
@@ -32,8 +32,22 @@ const postStock = (stockName)=>{
         data: stockName,
         method: "POST",
       });
+}
 
+const getStock = (stockName) =>{
+    return $.ajax({
+        url: "/api/results",
+        data: stockName,
+        method: "GET",
+      });
+}
+
+
+//convert date to unix timestamp
+const convertDate = (date) =>{
+    return new Date(date).getTime() / 1000
 }
 
 $results.on("click", handleResults)
+
 

@@ -4,34 +4,30 @@ const axios = require('axios');
 
 
 module.exports = (app) =>{
-    //index api routes
-    app.post('/api/index', (req, res) =>{
-        //const stockName = req.body
-        stockName = req.body
-        db.addAll([
-          "saved_stocks",
-          {
-            ticker: stockName
-          }
-        ])
-        
-    });
-
-    //results api routes
-
+ 
     app.get('/api/results', async (req,res) =>{
-      const stockName = "AAPL"
-      const date1 = 1608215400
-      const date2 = 1608042600;
-      const {prices} = await getStockData(stockName);
+      const stockName = req.body.stockName
 
-      filterResponse = prices.filter(({date}) => date1 >= parseInt(date) && date2 <= parseInt(date))
-      const header = Object.keys(filterResponse[0])
+      const {prices} = await getStockData(stockName.ticker);
 
-      res.render("results", {header:header})
-      //console.log(filterResponse)
-      res.json(filterResponse)
+      filterResponse = prices.filter(({date}) => stockName.from >= parseInt(date) && stockName.to <= parseInt(date))
+
+      console.log("filter response: ", filterResponse)
+      let headers ={
+        response:filterResponse
+      }
+      return res.render("results", headers)
     });
+
+    app.post('/api/results', async(req, res) =>{
+      const stockName = req.body.stockName
+
+      console.log(stockName)
+
+      header = stockName;
+
+      res.json(stockName)
+    })
 
     //user page api routes
     

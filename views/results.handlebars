@@ -1,4 +1,4 @@
-<table>{{results}}</table>
+
 <table class="table container">
   <thead>
     <tr>
@@ -9,22 +9,19 @@
         <th scope="col">Low</th>
         <th scope="col">Close</th>
         <th scope="col">Volume</th>
-        <th scope="col">Adj Close</th>
-
       </li>
     </tr>
   </thead>
   <tbody>
+    {{#each headers}}
     <tr>
-      {{#each headers}}
       <th scope="row">{{date}}</th>
       <td>{{open}}</td>
       <td>{{high}}</td>
       <td>{{low}}</td>
       <td>{{close}}</td>
       <td>{{volume}}</td>
-      <td>{{adjvolume}}</td>
-      {{/each}}
     </tr>
+    {{/each}}
   </tbody>
 </table>

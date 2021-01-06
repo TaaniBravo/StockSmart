@@ -7,24 +7,34 @@ const $dailyForm = $('#daily-form')
 const $historicalForm = $('#historical-form')
 
 const $results = $('#results')
+const $historicalResults = $('#historical-results')
+
+let dailyTicker = true;
 
 $('#form-buttons').on('click', '.btn', function(e) {
-    e.preventDefault();
+    //e.preventDefault();
     console.log($(this).attr('id'))
     if ($(this).attr('id') === 'daily-btn') {
+        dailyTicker = true;
+        console.log(dailyTicker)
+
         if ($dailyForm.hasClass('hide')) {
             $dailyForm.removeClass('hide')
             $historicalForm.addClass('hide')
             $dailyBtn.addClass('active')
             $historicalBtn.removeClass('active')
+            
         }
     };
     if ($(this).attr('id') === 'historical-btn') {
+        dailyTicker = false;
+        console.log(dailyTicker)
         if ($historicalForm.hasClass('hide')) {
             $historicalForm.removeClass('hide')
             $dailyForm.addClass('hide')
             $historicalBtn.addClass('active')
             $dailyBtn.removeClass('active')
+            
         }
     };
     if ($(this).attr('id') === 'trending-btn') {
@@ -37,33 +47,47 @@ const updateRangeValue = val => {
     document.getElementById('price-text').value = val
 }
 
-const handleResults = (e) =>{
-    //e.preventDefault()
-    const stockName = {
-        ticker: $('#ticker').val(),
-        from: convertDate($('#date-from').val()),
-        to: convertDate($('#date-to').val()),
-        price: $('#price-text').val(),
-        volume: $('#volume').is(":checked"),
-        newCatalyst: $('#news').is(":checked"),
-        lateEarnings: $('#earnings').is(":checked"),
-        secFilings: $('#filings').is(":checked")}
+const handleResults = async (e) =>{
+    let stock;
+    e.preventDefault()
+    if(dailyTicker){
+        stock = {
+            ticker: $('#search-ticker').val(),
+            volume: $('#volume').is(":checked"),
+            newCatalyst: $('#news').is(":checked"),
+            lateEarnings: $('#earnings').is(":checked"),
+            secFilings: $('#filings').is(":checked"),
+            
+        }
+        console.log("here")
+    }else{
+         stock = {
+            ticker: $('#historical-ticker').val(),
+            dateFrom: convertDate($('#date-from').val()),
+            dateTo: convertDate($('#date-to').val()),
+        }
+    }
     
-    console.log(stockName)
-    postStock(stockName)
+    console.log(stock)
+    postStock(stock).then((res)=>{
+        console.log(res);
+        window.location.href = "/results";
+    })
+    
+    
 }
-const postStock = (stockName)=>{
+const postStock = (stock)=>{
     return $.ajax({
         url: "/api/results",
-        data: stockName,
+        data: stock,
         method: "POST",
       });
 }
 
-const getStock = (stockName) =>{
+const getStock = (stock) =>{
     return $.ajax({
         url: "/api/results",
-        data: stockName,
+        data: stock,
         method: "GET",
       });
 }
@@ -75,5 +99,6 @@ const convertDate = (date) =>{
 }
 
 $results.on("click", handleResults)
+$historicalResults.on("click", handleResults)
 
 

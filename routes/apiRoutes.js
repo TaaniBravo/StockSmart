@@ -1,5 +1,5 @@
 const path = require("path");
-const db = require("../db/index.js");
+const orm = require("../config/orm.js");
 const axios = require('axios');
 
 
@@ -8,7 +8,7 @@ module.exports = (app) =>{
     app.post('/api/index', (req, res) =>{
         //const stockName = req.body
         stockName = req.body
-        db.addAll([
+        orm.add([
           "saved_stocks",
           {
             ticker: stockName

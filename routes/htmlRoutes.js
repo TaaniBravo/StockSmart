@@ -1,5 +1,5 @@
 const path = require("path");
-const db = require("../db/index.js");
+const orm = require("../config/orm.js");
 const axios = require('axios');
 
 

@@ -35,7 +35,7 @@ const orm = {
         const queryStr = `SELECT * FROM ${table};`
         connection.query(queryStr, (err, data) => {
             if (err) {
-                return res.status(500).end();
+                throw err;
             }
             cb (data);
         })
@@ -49,7 +49,7 @@ const orm = {
 
         connection.query(queryStr, vals, (err, data) => {
             if (err) {
-                return res.status(500).end();
+                throw err;
             }
             cb (data);
         })
@@ -60,7 +60,7 @@ const orm = {
         const queryStr = `DELETE FROM ${table} WHERE ?`;
         connection.query(queryStr, [{column: value}], (err, data) => {
             if (err) {
-                return res.status(500).end();
+                throw err;
             }
             cb (data);
         })
@@ -72,7 +72,7 @@ const orm = {
         console.log(queryStr);
         connection.query(queryStr, (err, data) => {
             if (err) {
-                return res.status(500).end();
+                throw err;
             }
             cb (data);
         })

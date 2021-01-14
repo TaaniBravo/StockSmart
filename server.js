@@ -1,6 +1,9 @@
+require('dotenv').config();
 const express = require("express");
 const exphbs = require('express-handlebars')
-const path = require("path");
+const flash = require('express-flash');
+const session = require('express-session');
+const passport = require('./config/passport.js')
 
 //set up express app
 const app = express();
@@ -16,6 +19,14 @@ app.use(express.json());
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+app.use(flash())
+app.use(sessions({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized:false
+}))
+app.use(passport.initialize())
+app.use(passport.sessions)
 
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);

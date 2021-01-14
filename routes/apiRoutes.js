@@ -1,6 +1,9 @@
+require('dotenv').config();
 const path = require("path");
 const db = require("../db/index.js");
 const axios = require('axios');
+const bcrypt = require('bcrypt')
+
 
 let array;
 module.exports = (app) =>{
@@ -60,36 +63,49 @@ module.exports = (app) =>{
       });
   
       app.post('/api/register', async (req, res) =>{
-          const user = req.body
+          const {username, password} = req.body
 
           console.log(user);
           try{
-            const queryResponse = await db.addAll(["user", user])
-            res.json(queryResponse.affectedRows + " product inserted!\n")
+            const hashedPass = await bcrypt.hash(password, 10)
+            const queryResponse = await db.addAll(
+                [
+                  "user", 
+                  {
+                    username:username,
+                    password:hashedPass
+                  }
+                ])
+
+            res.redirect('/login')
           }catch(err){
+            res.redirect('/register')
             console.error(err)
           }
       })
     //user page api routes
     
-    app.get('/api/userpage', (req,res) =>{
+    app.get('/api/login', (req,res) =>{
 
     });
 
-    app.post('/api/userpage', (req, res) =>{
-        
-    })
-}
+    app.post('/api/login', passport.authenticate('local',
+      {
+        successRedirect: '/',
+        failureRedirect: '/login',
+        failureFlash: true
+      }
+    ))
 
 const getStockData = async (stockName) =>{
-  //c7bf11e390mshf37ad9d4c08c808p135c56jsnc2c4e46c1575
-  //9a75e7e737msh3e63f4ab675bf6ap1c7c04jsne77b973b90a7
+
   const options = {
     method: 'GET',
     url: `https://apidojo-yahoo-finance-v1.p.rapidapi.com/stock/v3/get-historical-data`,
     params: {symbol: 'AMRN', region: 'US'},
     headers: {
-      'x-rapidapi-key': '9a75e7e737msh3e63f4ab675bf6ap1c7c04jsne77b973b90a7',
+      // /market/get-trending-tickers'
+      'x-rapidapi-key': process.env.APi_PASS,
       'x-rapidapi-host': 'apidojo-yahoo-finance-v1.p.rapidapi.com'
     }
   };
@@ -98,6 +114,5 @@ const getStockData = async (stockName) =>{
         return(data)
       }catch(err){
           console.error(err);
-      }
-      
-}
+      }    
+}}

@@ -1,15 +1,19 @@
-<form class="px-5 pt-1 mt-2 mx-5">
+<form class="px-5 pt-1 mt-2 mx-5" action="/api/login" method="POST">
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="form-control" id="username">
+    <input type="text" class="form-control" id="username" name="username">
   </div>
   <div class="form-group">
     <label for="user-password">Password</label>
-    <input type="password" class="form-control" id="user-password">
+    <input type="password" class="form-control" id="user-password" name="password">
   </div>
   <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="remember-me">
+    <input type="checkbox" class="form-check-input" id="remember-me" name="rememberMe">
     <label class="form-check-label" for="remember-me">Remember Me</label>
   </div>
   <button type="submit" class="btn btn-primary">Sign In</button>
 </form>
+<h1>{{#if messages.error}}
+      {{messages.error}}
+    {{/if}}
+</h1>

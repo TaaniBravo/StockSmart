@@ -1,27 +1,27 @@
-<table>{{results}}</table>
+
 <table class="table container">
   <thead>
     <tr>
-      {{#each header}}
       <li>
-        <th scope="col">{{this}}</th>
+        <th scope="col">Date</th>
+        <th scope="col">Open</th>
+        <th scope="col">High</th>
+        <th scope="col">Low</th>
+        <th scope="col">Close</th>
+        <th scope="col">Volume</th>
       </li>
-      {{/each}}
     </tr>
   </thead>
   <tbody>
+    {{#each headers}}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>
-        <label class="star-checkbox">
-          <input type="checkbox">
-          <i class="far fa-star unchecked"></i>
-          <i class="fas fa-star checked"></i>
-        </label>
-      </td>
+      <th scope="row">{{date}}</th>
+      <td>{{open}}</td>
+      <td>{{high}}</td>
+      <td>{{low}}</td>
+      <td>{{close}}</td>
+      <td>{{volume}}</td>
     </tr>
+    {{/each}}
   </tbody>
 </table>

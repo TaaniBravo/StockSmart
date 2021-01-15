@@ -19,7 +19,7 @@
   <form class="row g-2 justify-content-center px-4 pt-1">
     <div class="col-12">
       <input class="form-control" type="text" placeholder="Search Specific Ticker (optional)"
-        aria-label="search-ticker">
+        aria-label="search-ticker" id="search-ticker">
     </div>
     <div class="col-12 mt-2">
       <label for="price-range" class="form-label col-sm-2">Price Range: </label>
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="col-12 d-flex justify-content-center mt-2">
-      <a class="btn btn-primary" href="/results" role="button" id="results">View Results</a>
+       <a class="btn btn-primary" href="/results" role="button" id="results">View Results</a>
       <button class="btn btn-danger ml-2">Clear Parameters</button>
     </div>
   </form>
@@ -70,7 +70,7 @@
 <div class="container border border-4 rounded p-3 vw-90 hide" id="historical-form">
   <form class="row g-2 justify-content-center px-4 pt-1">
     <div class="col-12 mb-2">
-      <input class="form-control" type="text" placeholder="Input Ticker" aria-label="search-ticker">
+      <input class="form-control" type="text" placeholder="Input Ticker" aria-label="search-ticker" id="historical-ticker">
     </div>
     <div class="col-sm-6">
       <label for="date-from" class="form-label">From:</label>
@@ -81,7 +81,7 @@
       <input type="date" class="form-control" id="date-to">
     </div>
     <div class="col-12 d-flex justify-content-center mt-2">
-      <a class="btn btn-primary" href="/results" role="button" id="results">View Results</a>
+      <a class="btn btn-primary" href="/results" role="button" id="historical-results">View Results</a>
       <button class="btn btn-danger ml-2">Clear Parameters</button>
     </div>
   </form>
